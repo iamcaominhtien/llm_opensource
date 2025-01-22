@@ -11,27 +11,28 @@ dependencies = [
     "Flask==2.3.3",
     "requests==2.31.0",
     "debugpy",
-    "langchain==0.3.15"
+    "langchain==0.3.15",
+    "langchain-ollama==0.2.2"
 ]
 
 [project.optional-dependencies]
 dev = ["pytest", "black", "flake8"]
 
 [project.scripts]
-llm_opensource-cli = "llm_opensource.cli:main"
+llm_opensource-cli = "src.cli:main"
 
 [tool.setuptools]
-packages = ["llm_opensource"]
+packages = ["src"]
 
 [tool.setuptools.package-data]
-"llm_opensource" = ["data/*.csv"]
+"src" = ["data/*.csv"]
 
 [tool.check-manifest]
 ignore = ["*.md", "docs/**"]
 
 [tool.coverage.run]
 branch = true
-source = ["llm_opensource"]
+source = ["src"]
 
 [tool.coverage.report]
 show_missing = true
