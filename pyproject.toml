@@ -1,0 +1,37 @@
+[build-system]
+requires = ["setuptools>=61.0"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "llm_opensource"
+version = "0.1.0"
+description = "A project for LLM open source"
+requires-python = ">=3.12"
+dependencies = [
+    "Flask==2.3.3",
+    "requests==2.31.0",
+    "debugpy",
+    "langchain==0.3.15"
+]
+
+[project.optional-dependencies]
+dev = ["pytest", "black", "flake8"]
+
+[project.scripts]
+llm_opensource-cli = "llm_opensource.cli:main"
+
+[tool.setuptools]
+packages = ["llm_opensource"]
+
+[tool.setuptools.package-data]
+"llm_opensource" = ["data/*.csv"]
+
+[tool.check-manifest]
+ignore = ["*.md", "docs/**"]
+
+[tool.coverage.run]
+branch = true
+source = ["llm_opensource"]
+
+[tool.coverage.report]
+show_missing = true

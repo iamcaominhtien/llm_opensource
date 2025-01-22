@@ -1,0 +1,37 @@
+<component name="ProjectRunConfigurationManager">
+  <configuration default="false" name="Cloud Run: Deploy" type="CloudCodeCloudRunConfigurationType" factoryName="CloudCodeCloudDeployRunConfigurationFactory" show_console_on_std_err="false" show_console_on_std_out="false" gcpProject="{&quot;googleUsername&quot;:&quot;iamcaominhtien.entertainment@gmail.com&quot;,&quot;projectId&quot;:&quot;llm-opensource-19052001&quot;,&quot;projectName&quot;:&quot;llm-opensource&quot;,&quot;projectNumber&quot;:28772328544}" imageBuilder="{&quot;name&quot;:&quot;Docker&quot;,&quot;payload&quot;:{&quot;path&quot;:&quot;Dockerfile&quot;}}" gcbSettings="{&quot;diskSizeGb&quot;:60,&quot;machineType&quot;:&quot;E2_HIGHCPU_8&quot;}">
+    <option name="allowRunningInParallel" value="false" />
+    <option name="buildEnvironment" value="Google Cloud Build" />
+    <option name="buildpacksEnv">
+      <map />
+    </option>
+    <option name="cloudSqlConnections">
+      <list />
+    </option>
+    <option name="concurrency" value="80" />
+    <option name="cpuAllocated" value="4" />
+    <option name="dockerBuildArgs">
+      <map />
+    </option>
+    <option name="dockerTarget" value="" />
+    <option name="environmentVariables">
+      <map />
+    </option>
+    <option name="imagePath" value="gcr.io/llm-opensource-19052001/llm-opensource" />
+    <option name="loadingAvailableBuilders" value="false" />
+    <option name="managedAuthentication" value="ALLOW_UNAUTHENTICATED" />
+    <option name="managedRegion" value="us-central1" />
+    <option name="maxInstances" value="2" />
+    <option name="memoryAllocated" value="GIB_8" />
+    <option name="platform" value="FULLY_MANAGED" />
+    <option name="projectPathOnTarget" />
+    <option name="selectedOptions">
+      <list />
+    </option>
+    <option name="serviceAccount" value="" />
+    <option name="serviceName" value="llm-opensource" />
+    <option name="timeout" value="300" />
+    <option name="vpcConnector" value="" />
+    <method v="2" />
+  </configuration>
+</component>

@@ -4,14 +4,15 @@ FROM python:3.12-alpine
 # Set the working directory to /app
 WORKDIR /app
 
-# copy the requirements file used for dependencies
-COPY requirements.txt .
-
-# Install any needed packages specified in requirements.txt
-RUN pip install --trusted-host pypi.python.org -r requirements.txt
-
-# Copy the rest of the working directory contents into the container at /app
+# Copy the entire project first
 COPY . .
+
+# Install build dependencies and pip tools
+RUN apk add --no-cache gcc musl-dev && \
+    pip install --upgrade pip setuptools wheel
+
+# Install project dependencies
+RUN pip install -e .
 
 # Run app.py when the container launches
 ENTRYPOINT ["python", "app.py"]
