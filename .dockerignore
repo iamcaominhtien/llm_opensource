@@ -1,4 +1,8 @@
 .dockerignore
 .vscode
 .idea
-.readmes
+.readmes/llm_opensource.egg-info/
+
+/build/
+
+/.venv/

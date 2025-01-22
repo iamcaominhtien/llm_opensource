@@ -24,17 +24,18 @@ RUN apt-get update && apt-get install -y \
 RUN curl -sS https://bootstrap.pypa.io/get-pip.py | python3.12 && \
     python3.12 -m pip install --upgrade pip
 
+# Install Ollama (this requires Ubuntu/Debian)
+RUN curl -L https://ollama.com/download/ollama-linux-amd64.tgz -o ollama-linux-amd64.tgz
+RUN tar -C /usr -xzf ollama-linux-amd64.tgz && \
+    rm ollama-linux-amd64.tgz
+
+RUN ollama serve & sleep 5 && ollama pull llama3.2
+
 # Copy the project
 COPY . .
 
 # Install project dependencies with force-reinstall to handle distutils packages
-RUN python3.12 -m pip install --ignore-installed --force-reinstall -e .
-
-# Install Ollama (this requires Ubuntu/Debian)
-RUN curl -fsSL https://ollama.com/install.sh | sh
-
-# The Ollama model pull should be done at runtime, not build time
-# because it requires the Ollama service to be running
+RUN python3.12 -m pip install --ignore-installed -e .
 
 # Run app.py when the container launches
-ENTRYPOINT ["python3.12", "app.py"]
+CMD ollama serve & sleep 5 && python3.12 app.py
