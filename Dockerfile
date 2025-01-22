@@ -30,6 +30,7 @@ RUN tar -C /usr -xzf ollama-linux-amd64.tgz && \
     rm ollama-linux-amd64.tgz
 
 RUN ollama serve & sleep 5 && ollama pull llama3.2
+RUN ollama serve & sleep 5 && ollama pull deepseek-r1:1.5b
 
 # Copy the project
 COPY . .

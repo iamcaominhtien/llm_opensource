@@ -12,12 +12,15 @@ class OllamaApiDemoAPIController(MethodResource, Resource):
 	@use_kwargs(OllamaAPIGetSchema, location="query")
 	@marshal_with(OllamaAPIGetSchema, code=200, description="Success")
 	def get(self, question):
-		template = """Question: {question}
-
-		Answer: Let's think step by step."""
+		template = """You are a question-answer assistant.
+		Answer the question in concise and clear format.
+		If you don't know the answer, you can say "I don't know".
+		Don't try to make up an answer.
+		Question: {question}
+		"""
 
 		prompt = ChatPromptTemplate.from_template(template)
-		model = OllamaLLM(model="llama3.2")
+		model = OllamaLLM(model="deepseek-r1:1.5b")
 		chain = prompt | model
 		response = chain.invoke({"question": question})
 
