@@ -22,7 +22,7 @@
     <option name="managedAuthentication" value="ALLOW_UNAUTHENTICATED" />
     <option name="managedRegion" value="us-central1" />
     <option name="maxInstances" value="2" />
-    <option name="memoryAllocated" value="GIB_8" />
+    <option name="memoryAllocated" value="GIB_16" />
     <option name="platform" value="FULLY_MANAGED" />
     <option name="projectPathOnTarget" />
     <option name="selectedOptions">
